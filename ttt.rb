@@ -1,4 +1,4 @@
-class Game
+class Board
  	
  	def initialize
  	
@@ -37,3 +37,28 @@ class Playero < Player
 		"o"
 	end
 end
+
+class Game 
+	def initialize
+		@player1 = Playero.new
+		@player2 = Playerx.new
+
+		@board = Board.new
+
+		@game_in_progress = true
+
+		puts "Name for first player"
+		player_one = gets.chomp
+
+		puts "Name for second player"
+		player_one = gets.chomp
+
+		game_loop
+
+		def game_loop
+			while @game_in_progress do |
+
+#ask current player for input
+		puts "make a move 9[0-2].[0-2]0:"
+
+			end
