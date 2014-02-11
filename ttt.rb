@@ -48,17 +48,31 @@ class Game
 		@game_in_progress = true
 
 		puts "Name for first player"
-		player_one = gets.chomp
+		player1 = gets.chomp
 
 		puts "Name for second player"
-		player_one = gets.chomp
+		player2 = gets.chomp
 
 		game_loop
-
+	end
 		def game_loop
-			while @game_in_progress do ||
+			while @game_in_progress do
 
 #ask current player for input
 		puts "make a move 9[0-2].[0-2]0:"
-
-			end
+		inputx = gets.chomp
+		x = input.split(",")[0].to_i
+		y = input.split(",")[1].to_i
+		@board.insert(x,y, "x")
+		@board.show
+		#update the game based on the input
+		#update the current player
+		puts "make a move 9[0-2].[0-2]0:"
+		inputy = gets.chomp
+		x = input.split(",")[0].to_i
+		y = input.split(",")[1].to_i
+		@board.insert(x,y, "x")
+		@board.show
+		end
+		
+end
