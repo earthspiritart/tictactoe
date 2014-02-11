@@ -56,7 +56,7 @@ class Game
 		game_loop
 
 		def game_loop
-			while @game_in_progress do |
+			while @game_in_progress do ||
 
 #ask current player for input
 		puts "make a move 9[0-2].[0-2]0:"
