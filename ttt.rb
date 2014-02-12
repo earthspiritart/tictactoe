@@ -13,7 +13,7 @@ class Board
 		puts " #{@grid[2][0]} | #{@grid[2][1]} | #{@grid[2][2]}"
 	end
 	
-	def board_status(a,b)
+	def get(a,b)
 		return @grid[a][b]
 	end
 
@@ -80,6 +80,14 @@ class Game
 			end
 			@board.insert(x,y, "X")
 			@board.show
+			
+			x = @board.get(x,y)
+			puts x
+			puts x == "X"
+			if @board.get(0,0) == "X" && @board.get(0,1) == "X" && @board.get(0,2) == "X"
+				puts "X wins"
+			end
+
 			####################
 			puts "#{@player2} make a move by entering x,y"
 			inputy = gets.chomp
@@ -92,6 +100,9 @@ class Game
 				y = inputy.split(",")[1].to_i 
 			end
 			@board.insert(x,y, "O")
+
+
+
 			@board.show
 		end
 	end
