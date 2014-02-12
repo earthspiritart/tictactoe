@@ -13,6 +13,9 @@ class Board
 		puts "_________________________________________________"
 		puts " #{@grid[2][0]} | #{@grid[2][1]} | #{@grid[2][2]}"
 	end
+	
+	def insert(x,y,value)
+		@grid[x][y] = value
 
 end
 
@@ -24,14 +27,15 @@ class Player
 	end
 end
 
-class Playerx < Player
+class PlayerX < Player
 	
 	def to_s
 		"x"
 	end
 
 end
-class Playero < Player
+
+class PlayerO < Player
 	
 	def to_s
 		"o"
@@ -40,8 +44,8 @@ end
 
 class Game 
 	def initialize
-		@player1 = Playero.new
-		@player2 = Playerx.new
+		@player1 = PlayerO.new
+		@player2 = PlayerX.new
 
 		@board = Board.new
 
@@ -55,6 +59,7 @@ class Game
 
 		game_loop
 	end
+		
 		def game_loop
 			while @game_in_progress do
 
@@ -73,6 +78,7 @@ class Game
 		y = input.split(",")[1].to_i
 		@board.insert(x,y, "x")
 		@board.show
-		end
+			end
+			ends
 		
 end
