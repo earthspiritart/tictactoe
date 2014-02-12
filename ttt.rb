@@ -1,5 +1,4 @@
 class Board
- 	
  	def initialize
  	
  		@grid = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
@@ -14,6 +13,10 @@ class Board
 		puts " #{@grid[2][0]} | #{@grid[2][1]} | #{@grid[2][2]}"
 	end
 	
+	def board_status(a,b)
+		return @grid[a][b]
+	end
+
 	def insert(x,y,value)
 		@grid[x][y] = value
 	end
