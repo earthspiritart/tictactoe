@@ -2,7 +2,7 @@ class Board
  	
  	def initialize
  	
- 		@grid = [ ["x", "o", nil], [nil, nil, nil], [nil, nil, nil]]
+ 		@grid = [ [nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]
  	
  	end
 
@@ -16,7 +16,7 @@ class Board
 	
 	def insert(x,y,value)
 		@grid[x][y] = value
-
+	end
 end
 
 class Player
@@ -52,33 +52,40 @@ class Game
 		@game_in_progress = true
 
 		puts "Name for first player"
-		player1 = gets.chomp
+		@player1 = gets.chomp
 
 		puts "Name for second player"
-		player2 = gets.chomp
+		@player2 = gets.chomp
 
 		game_loop
 	end
-		
-		def game_loop
-			while @game_in_progress do
 
-#ask current player for input
-		puts "make a move 9[0-2].[0-2]0:"
+	def player_input
+		puts "#{@player1} make a move by entering x,y"
 		inputx = gets.chomp
-		x = input.split(",")[0].to_i
-		y = input.split(",")[1].to_i
+		x = inputx.split(",")[0].to_i
+		y = inputx.split(",")[1].to_i 
+		while x > 2 || y > 2 || x.class != Fixnum || y.class != Fixnum do
+			player_input	
+		end
 		@board.insert(x,y, "x")
+	end 
+
+	def game_loop
+		while @game_in_progress do			
+		
+		player_input
 		@board.show
 		#update the game based on the input
 		#update the current player
-		puts "make a move 9[0-2].[0-2]0:"
+		puts "#{@player2} make a move by entering x,y"
 		inputy = gets.chomp
-		x = input.split(",")[0].to_i
-		y = input.split(",")[1].to_i
-		@board.insert(x,y, "x")
+		x = inputy.split(",")[0].to_i
+		y = inputy.split(",")[1].to_i
+		@board.insert(x,y, "y")
 		@board.show
-			end
-			ends
+		
+		end
+	end
 		
 end
