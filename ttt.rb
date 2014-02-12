@@ -60,31 +60,36 @@ class Game
 		game_loop
 	end
 
-	def player_input
-		puts "#{@player1} make a move by entering x,y"
-		inputx = gets.chomp
-		x = inputx.split(",")[0].to_i
-		y = inputx.split(",")[1].to_i 
-		while x > 2 || y > 2 || x.class != Fixnum || y.class != Fixnum do
-			player_input	
-		end
-		@board.insert(x,y, "x")
-	end 
+	
+
 
 	def game_loop
 		while @game_in_progress do			
-		
-		player_input
-		@board.show
-		#update the game based on the input
-		#update the current player
-		puts "#{@player2} make a move by entering x,y"
-		inputy = gets.chomp
-		x = inputy.split(",")[0].to_i
-		y = inputy.split(",")[1].to_i
-		@board.insert(x,y, "y")
-		@board.show
-		
+			puts "#{@player1} make a move by entering x,y"
+			inputx = gets.chomp
+			x = inputx.split(",")[0].to_i
+			y = inputx.split(",")[1].to_i 
+			while x > 2 || y > 2 || x.class != Fixnum || y.class != Fixnum do
+				puts "#{@player1} make a move by entering x,y"
+				inputx = gets.chomp
+				x = inputx.split(",")[0].to_i
+				y = inputx.split(",")[1].to_i 
+			end
+			@board.insert(x,y, "X")
+			@board.show
+			####################
+			puts "#{@player2} make a move by entering x,y"
+			inputy = gets.chomp
+			x = inputy.split(",")[0].to_i
+			y = inputy.split(",")[1].to_i 
+			while x > 2 || y > 2 || x.class != Fixnum || y.class != Fixnum do
+				puts "#{@player2} make a move by entering x,y"
+				inputy = gets.chomp
+				x = inputy.split(",")[0].to_i
+				y = inputy.split(",")[1].to_i 
+			end
+			@board.insert(x,y, "O")
+			@board.show
 		end
 	end
 		
